@@ -32,7 +32,7 @@ const styles = theme => ({
 class Navbar extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {page:'home'}
+    this.state = {page:'Home'}
     this.handleMenuClick = this.handleMenuClick.bind(this);
   }
   handleMenuClick(props, e) {
@@ -46,12 +46,12 @@ class Navbar extends React.Component {
     let landingPage;
     if (currentPage === 'About') {
       landingPage = <About />
-    } else if(currentPage === 'Home'){
-      landingPage = <HomePage />
     } else if(currentPage === 'Gallery'){
       landingPage = <Gallery />
-    } else {
+    } else if(currentPage === 'Contact'){
       landingPage = <Contact />
+    } else{
+      landingPage = <HomePage />
     }
     return (
       <div>
