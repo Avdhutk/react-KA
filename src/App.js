@@ -10,7 +10,11 @@ import Menu from '@material-ui/icons/Menu';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import HomePage from './HomePage.js'
+import HomePage from './Home.js'
+import About from './About.js';
+import Contact from './Contact.js';
+import Gallery from './Gallery.js';
+
 const styles = theme => ({
   root: {
     marginTop: theme.spacing.unit *3,
@@ -82,38 +86,5 @@ class Navbar extends React.Component {
 Navbar.propTypes = {
   classes: PropTypes.object.isRequired
 };
-
-class About extends React.Component {
-
-  render() {
-    return (
-      <h2>Hey.. I am About </h2>
-    )
-  }
-}
-class Home extends React.Component {
-
-  render() {
-    return (
-      <h2>Hey.. I am Home </h2>
-    )
-  }
-}
-class Gallery extends React.Component {
-
-  render() {
-    return (
-      <h2>Hey.. I am Gallery </h2>
-    )
-  }
-}
-class Contact extends React.Component {
-
-  render() {
-    return (
-      <h2>Hey.. I am Contact </h2>
-    )
-  }
-}
 
 export default withStyles(styles)(Navbar);

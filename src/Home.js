@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import banner from './logo.svg';
+import banner from './Agro.jpg';
+import logo from './logo.PNG';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+
+import './App.css';
 
 const styles = theme => ({
   root: {
@@ -16,28 +19,34 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     color: theme.palette.text.secondary,
-  },
+  }
 });
 
-function CenteredGrid(props) {
-  const { classes } = props;
-  const style = {
-    display:'none'
+class Home extends Component {
+  constructor (props) {
+    super(props)
   }
-  return (
-    <div>
+  render() {
+    const { classes } = this.props;
+    const style = {
+      display:''
+    }
+    return (
       <Grid container spacing={24}>
         <Grid item xs={12}>
-          <h2>I am HomePage</h2>
-          <img src={banner} style={style}/>
+          <img src={banner} className="App-bg"/>
+          {/*<div className="App-content">
+            <img src={logo} className="App-logo"/>
+            <p className="App-title">Krishna Agro, Miraj</p>
+          </div>*/}
         </Grid>
       </Grid>
-    </div>
-  );
+    );
+  }
 }
 
-CenteredGrid.propTypes = {
+Home.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CenteredGrid);
+export default withStyles(styles)(Home);
