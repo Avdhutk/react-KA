@@ -35,9 +35,9 @@ class Navbar extends React.Component {
     this.state = {page:'Home'}
     this.handleMenuClick = this.handleMenuClick.bind(this);
   }
-  handleMenuClick(props, e) {
-    e.preventDefault();
-    this.setState({page:props})
+  handleMenuClick(e, value) {
+    e.preventDefault()
+    this.setState({page:value})
     const state = this.state.page
   }
   render() {
@@ -60,14 +60,12 @@ class Navbar extends React.Component {
             <Typography className={classes.flex} type="title" color="inherit">
               <span className={classes.title}>Material-UI</span>
             </Typography>
-            <Typography>
-              <Tabs>
-                <Tab label="&nbsp;Home&nbsp;" onClick={this.handleMenuClick.bind(this, 'Home')}/>
-                <Tab label="&nbsp;About&nbsp;" onClick={this.handleMenuClick.bind(this, 'About')} />
-                <Tab label="&nbsp;Gallery&nbsp;" onClick={this.handleMenuClick.bind(this, 'Gallery')} />
-                <Tab label="&nbsp;Contact&nbsp;" onClick={this.handleMenuClick.bind(this, 'Contact')} />
+              <Tabs value={currentPage} onChange={this.handleMenuClick}>
+                <Tab value="Home" label="&nbsp;Home&nbsp;"/>
+                <Tab value="About" label="&nbsp;About&nbsp;" />
+                <Tab value="Gallery" label="&nbsp;Gallery&nbsp;" />
+                <Tab value="Contact" label="&nbsp;Contact&nbsp;" />
               </Tabs>
-            </Typography>
             <div>
               <IconButton onClick={this.props.login}>
                 <AccountCircle/>
