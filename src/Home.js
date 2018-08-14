@@ -42,8 +42,8 @@ class Home extends Component {
         <img src={banner} className="App-bg"/>
         <div className="App-content">
           <div className={classes.heroContent}>
-             <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-               {/*Pricing*/}
+             <Typography variant="display1" align="center" color="secondary" gutterBottom>
+               Krishna Agro Services
              </Typography>
              <Typography variant="title" align="center" color="textSecondary" component="p">
                Quickly build an effective pricing table for your potential customers with this layout.

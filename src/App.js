@@ -36,7 +36,7 @@ const styles = theme => ({
     flex: 1
   },
   appBar: {
-    position: 'relative',
+    position: 'fixed'
   },
   layout: {
     width: 'auto',
@@ -76,22 +76,26 @@ class Navbar extends React.Component {
     }
     return (
       <React.Fragment>
-        <AppBar position="static" elevation={0} color="default" className={classes.appBar}>
-          <Toolbar>
-            <Typography className={classes.flex} variant="title" noWrap color="inherit">
-              <span className={classes.title}>Material-UI</span>
-            </Typography>
-              <Button onClick={this.handleMenuClick.bind(this, 'Home')}>Home</Button>
-              <Button onClick={this.handleMenuClick.bind(this, 'About')}>About</Button>
-              <Button onClick={this.handleMenuClick.bind(this, 'Gallery')}>Gallery</Button>
-              <Button onClick={this.handleMenuClick.bind(this, 'Contact')}>Contact</Button>
-            <Tooltip title="Login">
-              <Button color="primary" onClick={this.props.login} variant='outlined'>
-                <AccountCircle/>
-              </Button>
-            </Tooltip>
-          </Toolbar>
-        </AppBar>
+        <Grid container spacing={24}>
+          <Grid item xs={12} lg={12}>
+            <AppBar position="static" elevation={0} color="default" className={classes.appBar}>
+              <Toolbar>
+                <Typography className={classes.flex} variant="title" noWrap color="inherit">
+                  <span className={classes.title}>Krishna Agro</span>
+                </Typography>
+                  <Button onClick={this.handleMenuClick.bind(this, 'Home')}>Home</Button>
+                  <Button onClick={this.handleMenuClick.bind(this, 'About')}>About</Button>
+                  <Button onClick={this.handleMenuClick.bind(this, 'Gallery')}>Gallery</Button>
+                  <Button onClick={this.handleMenuClick.bind(this, 'Contact')}>Contact</Button>
+                <Tooltip title="Login">
+                  <Button color="primary" onClick={this.props.login} >
+                    <AccountCircle/>
+                  </Button>
+                </Tooltip>
+              </Toolbar>
+            </AppBar>
+          </Grid>
+        </Grid>
         <main>
         {landingPage }
         </main>
