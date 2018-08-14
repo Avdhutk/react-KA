@@ -1,18 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import MenuIcon from '@material-ui/icons/Menu';
-import Menu from '@material-ui/icons/Menu';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import Tooltip from '@material-ui/core/Tooltip';
+import {withStyles} from '@material-ui/core/styles';
+import {Typography, AppBar, Toolbar, Grid} from '@material-ui/core';
+import {Button, Tooltip} from '@material-ui/core';
+import {AccountCircle} from '@material-ui/icons';
 import HomePage from './Home.js'
 import About from './About.js';
 import Contact from './Contact.js';
@@ -20,7 +11,7 @@ import Gallery from './Gallery.js';
 
 const styles = theme => ({
   root: {
-    marginTop: theme.spacing.unit *3,
+    marginTop: theme.spacing.unit * 3,
     width: '100%'
   },
   flex: {
@@ -45,62 +36,61 @@ const styles = theme => ({
     [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
       width: 900,
       marginLeft: 'auto',
-      marginRight: 'auto',
-    },
+      marginRight: 'auto'
+    }
   }
 })
 
 class Navbar extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
-    this.state = {page:'Home'}
+    this.state = {
+      page: 'Home'
+    }
     this.handleMenuClick = this.handleMenuClick.bind(this);
   }
   handleMenuClick(value, e) {
-    e.preventDefault()
-    this.setState({page:value})
-    const state = this.state.page
+    e.preventDefault();
+    this.setState({page: value});
   }
   render() {
     const {classes} = this.props;
-    const currentPage = this.state.page
+    const currentPage = this.state.page;
     let landingPage;
     if (currentPage === 'About') {
-      landingPage = <About />
-    } else if(currentPage === 'Gallery'){
-      landingPage = <Gallery />
-    } else if(currentPage === 'Contact'){
-      landingPage = <Contact />
-    } else{
-      landingPage = <HomePage />
+      landingPage = <About/>
+    } else if (currentPage === 'Gallery') {
+      landingPage = <Gallery/>
+    } else if (currentPage === 'Contact') {
+      landingPage = <Contact/>
+    } else {
+      landingPage = <HomePage/>
     }
-    return (
-      <React.Fragment>
-        <Grid container spacing={24}>
-          <Grid item xs={12} lg={12}>
-            <AppBar position="static" elevation={0} color="default" className={classes.appBar}>
-              <Toolbar>
-                <Typography className={classes.flex} variant="title" noWrap color="inherit">
-                  <span className={classes.title}>Krishna Agro</span>
-                </Typography>
-                  <Button onClick={this.handleMenuClick.bind(this, 'Home')}>Home</Button>
-                  <Button onClick={this.handleMenuClick.bind(this, 'About')}>About</Button>
-                  <Button onClick={this.handleMenuClick.bind(this, 'Gallery')}>Gallery</Button>
-                  <Button onClick={this.handleMenuClick.bind(this, 'Contact')}>Contact</Button>
-                <Tooltip title="Login">
-                  <Button color="primary" onClick={this.props.login} >
-                    <AccountCircle/>
-                  </Button>
-                </Tooltip>
-              </Toolbar>
-            </AppBar>
-          </Grid>
+    return (<React.Fragment>
+      <Grid container spacing={24}>
+        <Grid item xs={12} lg={12}>
+          <AppBar position="static" elevation={0} color="default" className={classes.appBar}>
+            <Toolbar>
+              <Typography className={classes.flex} variant="title" noWrap color="inherit">
+                <span className={classes.title}>Krishna Agro</span>
+              </Typography>
+              <Button onClick={this.handleMenuClick.bind(this, 'Home')}>Home</Button>
+              <Button onClick={this.handleMenuClick.bind(this, 'About')}>About</Button>
+              <Button onClick={this.handleMenuClick.bind(this, 'Gallery')}>Gallery</Button>
+              <Button onClick={this.handleMenuClick.bind(this, 'Contact')}>Contact</Button>
+              <Tooltip title="Login">
+                <Button color="primary" onClick={this.props.login}>
+                  <AccountCircle/>
+                </Button>
+              </Tooltip>
+            </Toolbar>
+          </AppBar>
         </Grid>
-        <main>
-        {landingPage }
-        </main>
-      </React.Fragment>
-    )
+      </Grid>
+      <main>
+        {landingPage}
+      </main>
+    </React.Fragment>)
   }
 }
 
