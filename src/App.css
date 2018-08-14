@@ -27,15 +27,15 @@
   /*display: none;*/
   /* Set up positioning */
   position: fixed;
-  top: 60px;
+  top: 0px;
   left: 0;
 }
 .App-content {
   z-index: 100;
   position: absolute;
-  color: black;
+  /*color: black;
   font-weight: 300;
-  font-size: 3.3em;
+  font-size: 3.3em;*/
 }
 .App-title {
   left: 40%;

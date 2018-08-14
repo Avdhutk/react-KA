@@ -5,11 +5,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/icons/Menu';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import Tooltip from '@material-ui/core/Tooltip';
 import HomePage from './Home.js'
 import About from './About.js';
 import Contact from './Contact.js';
@@ -29,7 +32,21 @@ const styles = theme => ({
   },
   title: {
     color: 'green',
-    fontSize: 30
+    fontSize: 30,
+    flex: 1
+  },
+  appBar: {
+    position: 'relative',
+  },
+  layout: {
+    width: 'auto',
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
+      width: 900,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
   }
 })
 
@@ -39,7 +56,7 @@ class Navbar extends React.Component {
     this.state = {page:'Home'}
     this.handleMenuClick = this.handleMenuClick.bind(this);
   }
-  handleMenuClick(e, value) {
+  handleMenuClick(value, e) {
     e.preventDefault()
     this.setState({page:value})
     const state = this.state.page
@@ -58,27 +75,27 @@ class Navbar extends React.Component {
       landingPage = <HomePage />
     }
     return (
-      <div>
-        <AppBar position="static" elevation={0} color="default">
+      <React.Fragment>
+        <AppBar position="static" elevation={0} color="default" className={classes.appBar}>
           <Toolbar>
-            <Typography className={classes.flex} type="title" color="inherit">
+            <Typography className={classes.flex} variant="title" noWrap color="inherit">
               <span className={classes.title}>Material-UI</span>
             </Typography>
-              <Tabs value={currentPage} onChange={this.handleMenuClick}>
-                <Tab value="Home" label="&nbsp;Home&nbsp;"/>
-                <Tab value="About" label="&nbsp;About&nbsp;" />
-                <Tab value="Gallery" label="&nbsp;Gallery&nbsp;" />
-                <Tab value="Contact" label="&nbsp;Contact&nbsp;" />
-              </Tabs>
-            <div>
-              <IconButton onClick={this.props.login}>
+              <Button onClick={this.handleMenuClick.bind(this, 'Home')}>Home</Button>
+              <Button onClick={this.handleMenuClick.bind(this, 'About')}>About</Button>
+              <Button onClick={this.handleMenuClick.bind(this, 'Gallery')}>Gallery</Button>
+              <Button onClick={this.handleMenuClick.bind(this, 'Contact')}>Contact</Button>
+            <Tooltip title="Login">
+              <Button color="primary" onClick={this.props.login} variant='outlined'>
                 <AccountCircle/>
-              </IconButton>
-            </div>
+              </Button>
+            </Tooltip>
           </Toolbar>
         </AppBar>
-        {landingPage}
-      </div>
+        <main>
+        {landingPage }
+        </main>
+      </React.Fragment>
     )
   }
 }
