@@ -30,11 +30,11 @@ const services = [
   {
     title: 'Krishna Agro Shop',
     description: 'We provide all kinds of agriculture medicines to increase productivity of your farm',
-    image: require('./Shop.jpg')
+    image: require('./images/Shop.jpg')
   }, {
     title: 'Krishna Agro Nursery',
     description: 'We provide all kinds of agriculture medicines to increase productivity of your farm',
-    image: require('./Nursery.jpg')
+    image: require('./images/Nursery.jpg')
   }
 ]
 class Home extends Component {

@@ -8,7 +8,7 @@ import HomePage from './Home.js'
 import About from './About.js';
 import Contact from './Contact.js';
 import Gallery from './Gallery.js';
-import banner from './Agro.jpg';
+import banner from './images/Agro.jpg';
 import './App.css';
 const styles = theme => ({
   root: {
