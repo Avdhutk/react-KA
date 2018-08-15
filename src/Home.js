@@ -2,17 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import {
-  Typography,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  CardHeader
-} from '@material-ui/core';
+import {Typography, Card, CardActions, CardContent, CardMedia, CardHeader} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import banner from './Agro.jpg';
-
 import './App.css';
 
 const styles = theme => ({
@@ -53,8 +44,7 @@ class Home extends Component {
   render() {
     const {classes} = this.props;
 
-    return (<div>
-      <img src={banner} alt="" className="App-bg"/>
+    return (
       <div className="App-content">
         <div className={classes.heroContent}>
           <Typography variant="display1" align="center" color="secondary">
@@ -91,8 +81,7 @@ class Home extends Component {
             }
           </Grid>
         </div>
-      </div>
-    </div>);
+      </div>);
   }
 }
 

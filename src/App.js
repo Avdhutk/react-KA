@@ -8,7 +8,8 @@ import HomePage from './Home.js'
 import About from './About.js';
 import Contact from './Contact.js';
 import Gallery from './Gallery.js';
-
+import banner from './Agro.jpg';
+import './App.css';
 const styles = theme => ({
   root: {
     marginTop: theme.spacing.unit * 3,
@@ -88,6 +89,7 @@ class Navbar extends React.Component {
         </Grid>
       </Grid>
       <main>
+        <img src={banner} alt="" className="App-bg"/>
         {landingPage}
       </main>
     </React.Fragment>)
