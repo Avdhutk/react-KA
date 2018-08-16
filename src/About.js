@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import banner from './images/Agro.jpg';
-import Typography from '@material-ui/core/Typography';
-
+import Paper from '@material-ui/core/Paper';
+import fertilizer from './images/fertilizers1.jpg';
+import nursery from './images/nursery1.jpg';
 import './App.css';
 
 const styles = theme => ({
@@ -15,42 +15,60 @@ const styles = theme => ({
     maxWidth: 600,
     margin: '0 auto',
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+    paddingLeft: '10%',
+    paddingRight: '10%'
+  },
+  gridItem: {
+    marginLeft: '0%'
+  },
+  paper: {
+    padding: theme.spacing.unit * 2,
+    height: '100%',
+    width: '100%',
+    marginTop: 0,
+    textAlign: 'justify',
+    color: theme.palette.text.secondary,
   }
 });
 
-class Home extends Component {
+class About extends Component {
   constructor(props) {
     super(props)
   }
   render() {
     const {classes} = this.props;
 
-    return (<div>
-      <img src={banner} alt="" className="App-bg"/>
+    return (
       <div className="App-content">
-        <div className={classes.heroContent}>
-          <Typography variant="display3" align="center" color="textPrimary" >
-            Pricing
-          </Typography>
-          <Typography variant="title" align="center" color="textSecondary" component="p">
-            Quickly build an effective pricing table for your potential customers with this layout. It&apos;s built with default Material-UI components with little customization.
-          </Typography>
-        </div>
+        <div className={classes.heroContent}></div>
         <div className={classes.root}>
           <Grid container spacing={40} alignItems="flex-end">
-            <Grid item xs={1} md={1} sm={1} lg={1}></Grid>
-            <Grid item xs={10} md={4} sm={4} lg={4}></Grid>
-            <Grid item xs={1} md={2} sm={2} lg={2}></Grid>
-            <Grid item xs={10} md={4} sm={4} lg={4}></Grid>
+            <Grid item xs={12} md={5} className={classes.gridItem}>
+              <img src={fertilizer} alt="fertilizer" height='70%' width='70%' style={{paddingLeft: 100}}/>
+            </Grid>
+            <Grid item xs={12} md={5}>
+              <h2 style={{ textAlign:'center'}}>Fertilizers and Chemicals (Shop)</h2>
+              <div className={classes.paper} style={{color:'black'}}>Fluid grids use columns that scale and resize content. A fluid grid’s layout can use breakpoints to determine if the layout needs to change dramatically.Fluid grids use columns that scale and resize content. A fluid grid’s layout can use breakpoints to determine if the layout needs to change dramatically.Fluid grids use columns that scale and resize content. A fluid grid’s layout can use breakpoints to determine if the layout needs to change dramatically.Fluid grids use columns that scale and resize content. A fluid grid’s layout can use breakpoints to determine if the layout needs to change dramatically.</div>
+            </Grid>
+            <Grid item xs={12} md={5} className={classes.gridItem}>
+              <h2 style={{ textAlign:'center'}}>Plants and Seeds (Nursery)</h2>
+              <div className={classes.paper} style={{color:'black'}}>Fluid grids use columns that scale and resize content. A fluid grid’s layout can use breakpoints to determine if the layout needs to change dramatically.Fluid grids use columns that scale and resize content. A fluid grid’s layout can use breakpoints to determine if the layout needs to change dramatically.Fluid grids use columns that scale and resize content. A fluid grid’s layout can use breakpoints to determine if the layout needs to change dramatically.Fluid grids use columns that scale and resize content. A fluid grid’s layout can use breakpoints to determine if the layout needs to change dramatically.</div>
+            </Grid>
+            <Grid item xs={12} md={5}>
+              <img src={nursery} alt="nursery" height='70%' width='70%' style={{paddingLeft: 100}}/>
+            </Grid>
           </Grid>
         </div>
-      </div>
-    </div>);
+      </div>);
   }
 }
 
-Home.propTypes = {
+About.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Home);
+export default withStyles(styles)(About);
