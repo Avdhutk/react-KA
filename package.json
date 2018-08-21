@@ -1,25 +1,16 @@
 {
-  "name": "react-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@material-ui/core": "^1.4.3",
-    "@material-ui/icons": "^2.0.1",
-    "material-ui": "^0.20.2",
-    "rc-menu": "^7.2.6",
-    "react": "^16.4.2",
-    "react-bootstrap": "^0.32.1",
-    "react-dom": "^16.4.2",
-    "react-pure-menu": "^0.2.1",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4",
-    "reactstrap": "^6.3.1",
-    "typeface-roboto": "0.0.54"
-  },
+  "name": "example-create-react-app-express",
+  "version": "1.0.0",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "client": "cd client && react-scripts start",
+    "server": "nodemon server.js",
+    "start": "concurrently --kill-others-on-fail \"cd client && npm start\" \"nodemon server.js\""
+  },
+  "dependencies": {
+    "express": "4.16.2",
+    "nodemon": "1.18.3"
+  },
+  "devDependencies": {
+    "concurrently": "3.5.0"
   }
 }
