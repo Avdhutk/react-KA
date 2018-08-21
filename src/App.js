@@ -8,6 +8,7 @@ import HomePage from './Home.js'
 import About from './About.js';
 import Contact from './Contact.js';
 import Gallery from './Gallery.js';
+import Login from './Login.js';
 import banner from './images/Agro.jpg';
 import './App.css';
 const styles = theme => ({
@@ -64,6 +65,8 @@ class Navbar extends React.Component {
       landingPage = <Gallery/>
     } else if (currentPage === 'Contact') {
       landingPage = <Contact/>
+    } else if (currentPage === 'Login') {
+      landingPage = <Login/>
     } else {
       landingPage = <HomePage/>
     }
@@ -80,7 +83,7 @@ class Navbar extends React.Component {
               <Button onClick={this.handleMenuClick.bind(this, 'Gallery')}>Gallery</Button>
               <Button onClick={this.handleMenuClick.bind(this, 'Contact')}>Contact</Button>
               <Tooltip title="Login">
-                <Button color="primary" onClick={this.props.login}>
+                <Button color="primary" onClick={this.handleMenuClick.bind(this, 'Login')}>
                   <AccountCircle/>
                 </Button>
               </Tooltip>
