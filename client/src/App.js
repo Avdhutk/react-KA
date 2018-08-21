@@ -47,7 +47,7 @@ class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 'Login'
+      page: 'Home'
     }
     this.handleMenuClick = this.handleMenuClick.bind(this);
   }
